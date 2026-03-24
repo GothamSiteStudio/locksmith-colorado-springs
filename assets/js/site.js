@@ -32,8 +32,11 @@ function renderHeader() {
   header.innerHTML = `
     <div class="header-inner">
       <a class="brand" href="${normalizeHref(root, "index.html")}">
-        <span class="brand-name">Locksmith Solutions LLC</span>
-        <span class="brand-subtitle">Colorado Springs Mobile Locksmith</span>
+        <img class="brand-logo" src="${root}images/logo.svg" alt="Locksmith Solutions LLC logo" width="40" height="40">
+        <div>
+          <span class="brand-name">Locksmith Solutions LLC</span>
+          <span class="brand-subtitle">Colorado Springs Mobile Locksmith</span>
+        </div>
       </a>
       <nav class="main-nav" aria-label="Primary navigation">${navMarkup}</nav>
       <a class="header-cta" href="tel:+17192573108">(719) 257-3108</a>
