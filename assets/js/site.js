@@ -55,8 +55,8 @@ function renderFooter() {
       <div class="footer-grid">
         <div>
           <p class="eyebrow">Locksmith Solutions LLC</p>
-          <h3>Mobile locksmith support across Colorado Springs and nearby communities.</h3>
-          <p class="footer-note">Fast local service for automotive, residential, and commercial locksmith needs with cleaner site architecture built for future SEO growth.</p>
+          <h3>Family-owned mobile locksmith serving Colorado Springs and El Paso County.</h3>
+          <p class="footer-note">With over 10 years of experience, we provide fast, honest, and affordable automotive, residential, and commercial locksmith service. Licensed and insured.</p>
         </div>
         <div class="content-grid">
           <div>
@@ -73,8 +73,18 @@ function renderFooter() {
             <ul class="footer-list">
               <li><a href="${normalizeHref(root, "services/index.html")}">Services</a></li>
               <li><a href="${normalizeHref(root, "service-areas/index.html")}">Service Areas</a></li>
-              <li><a href="${normalizeHref(root, "about/index.html")}">About</a></li>
-              <li><a href="${normalizeHref(root, "contact/index.html")}">Contact</a></li>
+              <li><a href="${normalizeHref(root, "about/index.html")}">About Us</a></li>
+              <li><a href="${normalizeHref(root, "contact/index.html")}">Contact Us</a></li>
+            </ul>
+          </div>
+          <div>
+            <p class="card-kicker">Follow Us</p>
+            <ul class="footer-list">
+              <li><a href="https://www.facebook.com/locksmithsolutionsllc" target="_blank" rel="noopener">Facebook</a></li>
+              <li><a href="https://www.instagram.com/locksmithsolutionsllc" target="_blank" rel="noopener">Instagram</a></li>
+              <li><a href="https://www.youtube.com/channel/UCPRSW-U8askxdzkPqYhhe2A" target="_blank" rel="noopener">YouTube</a></li>
+              <li><a href="https://www.yelp.com/biz/locksmith-solutions-colorado-springs" target="_blank" rel="noopener">Yelp</a></li>
+              <li><a href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener">Google Maps</a></li>
             </ul>
           </div>
         </div>
