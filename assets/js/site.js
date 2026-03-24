@@ -70,55 +70,109 @@ function renderFooter() {
 
   footer.innerHTML = `
     <div class="footer-inner">
-      <div class="footer-grid">
-        <div>
+      <div class="footer-top">
+        <div class="footer-intro">
           <p class="eyebrow">Locksmith Solutions LLC</p>
-          <h3>Family-owned mobile locksmith serving Colorado Springs and El Paso County.</h3>
-          <p class="footer-note">With over 10 years of experience, we provide fast, honest, and affordable automotive, residential, and commercial locksmith service. Licensed and insured.</p>
-        </div>
-        <div class="content-grid">
-          <div>
-            <p class="card-kicker">Contact</p>
-            <ul class="footer-list">
-              <li><a href="tel:+17192573108">(719) 257-3108</a></li>
-              <li><a href="mailto:yourlocksmith4@gmail.com">yourlocksmith4@gmail.com</a></li>
-              <li>Mon-Fri 7:00am to 9:30pm</li>
-              <li>Sat-Sun 8:00am to 9:00pm</li>
-            </ul>
-          </div>
-          <div>
-            <p class="card-kicker">Browse</p>
-            <ul class="footer-list">
-              <li><a href="${normalizeHref(root, "services/index.html")}">Services</a></li>
-              <li><a href="${normalizeHref(root, "service-areas/index.html")}">Service Areas</a></li>
-              <li><a href="${normalizeHref(root, "about/index.html")}">About Us</a></li>
-              <li><a href="${normalizeHref(root, "contact/index.html")}">Contact Us</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="card-kicker">Popular Services</p>
-            <ul class="footer-list">
-              <li><a href="${normalizeHref(root, "services/car-lockout.html")}">Car Lockout</a></li>
-              <li><a href="${normalizeHref(root, "services/car-key-replacement.html")}">Car Key Replacement</a></li>
-              <li><a href="${normalizeHref(root, "services/lock-rekey.html")}">Lock Rekey</a></li>
-              <li><a href="${normalizeHref(root, "services/smart-lock-installation.html")}">Smart Lock Installation</a></li>
-            </ul>
-          </div>
-          <div>
-            <p class="card-kicker">Follow Us</p>
-            <ul class="footer-list">
-              <li><a href="https://www.facebook.com/locksmithsolutionsllc" target="_blank" rel="noopener">Facebook</a></li>
-              <li><a href="https://www.instagram.com/locksmithsolutionsllc" target="_blank" rel="noopener">Instagram</a></li>
-              <li><a href="https://www.youtube.com/channel/UCPRSW-U8askxdzkPqYhhe2A" target="_blank" rel="noopener">YouTube</a></li>
-              <li><a href="https://www.yelp.com/biz/locksmith-solutions-colorado-springs" target="_blank" rel="noopener">Yelp</a></li>
-              <li><a href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener">Google Maps</a></li>
-            </ul>
+          <h2 class="footer-heading">Mobile locksmith help with faster contact, clearer navigation, and visible local trust.</h2>
+          <p class="footer-note">Family-owned, licensed, and insured locksmith service for Colorado Springs and El Paso County. Call for lockouts, car key replacement, rekeying, smart locks, and business security work.</p>
+          <div class="footer-quick-actions" aria-label="Quick contact actions">
+            <a class="button button-primary" href="${phoneHref}">Call ${phoneLabel}</a>
+            <a class="button button-secondary" href="${normalizeHref(root, "contact/index.html")}">Request Service</a>
+            <a class="button button-secondary" href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
           </div>
         </div>
-        <div class="footer-bottom">
-          <p>Fast mobile locksmith help across Colorado Springs and surrounding communities.</p>
-          <p><a href="${phoneHref}">${phoneLabel}</a></p>
+        <section class="footer-map-card" aria-labelledby="footer-map-title">
+          <div class="footer-map-copy">
+            <p class="card-kicker">Google Business</p>
+            <h3 id="footer-map-title">Find Locksmith Solutions LLC on Google Maps</h3>
+            <p>Use the embedded map to open directions, confirm the business listing, or verify the local presence before you call.</p>
+            <div class="footer-map-links">
+              <a class="text-link" href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener noreferrer">View Google Business profile</a>
+              <a class="text-link" href="${phoneHref}">Call for immediate help</a>
+            </div>
+          </div>
+          <div class="footer-map-frame">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6397.472852075466!2d-104.71000912411074!3d38.884501347465026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88c2efde641fc9af%3A0xb893eea8f4e61b21!2sLocksmith%20Solutions%20LLC!5e1!3m2!1sen!2sus!4v1774377306570!5m2!1sen!2sus"
+              title="Google map showing Locksmith Solutions LLC"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+            ></iframe>
+          </div>
+        </section>
+      </div>
+      <div class="footer-grid" aria-label="Footer navigation and business details">
+        <div>
+          <p class="card-kicker">Contact</p>
+          <h3 class="footer-section-title">Reach the locksmith directly</h3>
+          <ul class="footer-list">
+            <li><a href="${phoneHref}">Call ${phoneLabel}</a></li>
+            <li><a href="mailto:yourlocksmith4@gmail.com">yourlocksmith4@gmail.com</a></li>
+            <li><a href="${normalizeHref(root, "contact/index.html")}">Contact form and service request</a></li>
+            <li>Mon-Fri 7:00am to 9:30pm</li>
+            <li>Sat-Sun 8:00am to 9:00pm</li>
+          </ul>
         </div>
+        <div>
+          <p class="card-kicker">Browse</p>
+          <h3 class="footer-section-title">Navigate the main sections</h3>
+          <ul class="footer-list">
+            <li><a href="${normalizeHref(root, "index.html")}">Home</a></li>
+            <li><a href="${normalizeHref(root, "services/index.html")}">Services</a></li>
+            <li><a href="${normalizeHref(root, "service-areas/index.html")}">Service Areas</a></li>
+            <li><a href="${normalizeHref(root, "about/index.html")}">About Us</a></li>
+            <li><a href="${normalizeHref(root, "contact/index.html")}">Contact Us</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="card-kicker">Popular Services</p>
+          <h3 class="footer-section-title">Go straight to common requests</h3>
+          <ul class="footer-list">
+            <li><a href="${normalizeHref(root, "services/car-lockout.html")}">Car Lockout</a></li>
+            <li><a href="${normalizeHref(root, "services/car-key-replacement.html")}">Car Key Replacement</a></li>
+            <li><a href="${normalizeHref(root, "services/lock-rekey.html")}">Lock Rekey</a></li>
+            <li><a href="${normalizeHref(root, "services/smart-lock-installation.html")}">Smart Lock Installation</a></li>
+            <li><a href="${normalizeHref(root, "services/business-lockout.html")}">Business Lockout</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="card-kicker">Service Area</p>
+          <h3 class="footer-section-title">Local coverage people search for</h3>
+          <ul class="footer-list">
+            <li><a href="${normalizeHref(root, "service-areas/colorado-springs.html")}">Colorado Springs</a></li>
+            <li><a href="${normalizeHref(root, "service-areas/falcon.html")}">Falcon</a></li>
+            <li><a href="${normalizeHref(root, "service-areas/monument.html")}">Monument</a></li>
+            <li><a href="${normalizeHref(root, "service-areas/fountain.html")}">Fountain</a></li>
+            <li><a href="${normalizeHref(root, "service-areas/manitou-springs.html")}">Manitou Springs</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="card-kicker">Trust Signals</p>
+          <h3 class="footer-section-title">What people usually need to verify</h3>
+          <ul class="footer-list footer-checklist">
+            <li>Licensed and insured mobile locksmith</li>
+            <li>Automotive, residential, and commercial service</li>
+            <li>Serving Colorado Springs and surrounding communities</li>
+            <li>Fastest response is by phone</li>
+          </ul>
+        </div>
+        <div>
+          <p class="card-kicker">Follow Us</p>
+          <h3 class="footer-section-title">Profiles and review platforms</h3>
+          <ul class="footer-list">
+            <li><a href="https://www.facebook.com/locksmithsolutionsllc" target="_blank" rel="noopener noreferrer">Facebook</a></li>
+            <li><a href="https://www.instagram.com/locksmithsolutionsllc" target="_blank" rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://www.youtube.com/channel/UCPRSW-U8askxdzkPqYhhe2A" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+            <li><a href="https://www.yelp.com/biz/locksmith-solutions-colorado-springs" target="_blank" rel="noopener noreferrer">Yelp</a></li>
+            <li><a href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener noreferrer">Google Business profile</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>Fast mobile locksmith help across Colorado Springs and surrounding communities.</p>
+        <p><a href="${phoneHref}">${phoneLabel}</a></p>
+        <p>Locksmith Solutions LLC</p>
       </div>
     </div>
   `;
