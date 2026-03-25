@@ -258,39 +258,95 @@ function renderBreadcrumbs() {
 function setupMobileNav() {
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.querySelector(".main-nav");
+  const header = document.querySelector(".site-header");
 
   if (!toggle || !nav) {
     return;
   }
 
-  const closeNav = () => {
+  const backdrop = document.createElement("div");
+  backdrop.className = "nav-backdrop";
+  backdrop.setAttribute("aria-hidden", "true");
+  header.appendChild(backdrop);
+
+  function getFocusableLinks() {
+    return Array.from(nav.querySelectorAll('a[href]'));
+  }
+
+  const openNav = () => {
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close navigation");
+    nav.classList.add("is-open");
+    backdrop.classList.add("is-visible");
+    document.body.classList.add("menu-open");
+
+    const firstLink = getFocusableLinks()[0];
+    if (firstLink) {
+      firstLink.focus();
+    }
+  };
+
+  const closeNav = (returnFocus) => {
     toggle.setAttribute("aria-expanded", "false");
     toggle.setAttribute("aria-label", "Open navigation");
     nav.classList.remove("is-open");
+    backdrop.classList.remove("is-visible");
     document.body.classList.remove("menu-open");
+
+    if (returnFocus) {
+      toggle.focus();
+    }
   };
 
   toggle.addEventListener("click", () => {
     const expanded = toggle.getAttribute("aria-expanded") === "true";
-    toggle.setAttribute("aria-expanded", String(!expanded));
-    toggle.setAttribute("aria-label", expanded ? "Open navigation" : "Close navigation");
-    nav.classList.toggle("is-open", !expanded);
-    document.body.classList.toggle("menu-open", !expanded);
+
+    if (expanded) {
+      closeNav(true);
+    } else {
+      openNav();
+    }
+  });
+
+  backdrop.addEventListener("click", () => {
+    closeNav(true);
   });
 
   nav.querySelectorAll("a").forEach((link) => {
-    link.addEventListener("click", closeNav);
+    link.addEventListener("click", () => closeNav(false));
   });
 
   window.addEventListener("resize", () => {
     if (window.innerWidth > 960) {
-      closeNav();
+      closeNav(false);
     }
   });
 
   document.addEventListener("keydown", (event) => {
+    if (toggle.getAttribute("aria-expanded") !== "true") {
+      return;
+    }
+
     if (event.key === "Escape") {
-      closeNav();
+      closeNav(true);
+      return;
+    }
+
+    if (event.key === "Tab") {
+      const links = getFocusableLinks();
+      const first = links[0];
+      const last = links[links.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        toggle.focus();
+      } else if (event.shiftKey && document.activeElement === toggle) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        toggle.focus();
+      }
     }
   });
 }
@@ -327,7 +383,18 @@ function setupFaqAccordion() {
   const items = document.querySelectorAll(".faq-item");
 
   items.forEach((item) => {
+    const summary = item.querySelector("summary");
+
+    if (summary) {
+      summary.setAttribute("role", "button");
+      summary.setAttribute("aria-expanded", String(item.open));
+    }
+
     item.addEventListener("toggle", () => {
+      if (summary) {
+        summary.setAttribute("aria-expanded", String(item.open));
+      }
+
       if (!item.open) {
         return;
       }
@@ -335,6 +402,10 @@ function setupFaqAccordion() {
       items.forEach((other) => {
         if (other !== item) {
           other.open = false;
+          const otherSummary = other.querySelector("summary");
+          if (otherSummary) {
+            otherSummary.setAttribute("aria-expanded", "false");
+          }
         }
       });
     });

@@ -2,6 +2,12 @@
 
 Goal: Make this website significantly better than locksmithsolutionsllc.com and dominate top Google positions for locksmith queries in Colorado Springs and El Paso County.
 
+> **Strategic Research Integrated (March 2026):** Conclusions from the competitive analysis,
+> demographic research, and growth strategy for the Colorado Springs locksmith market
+> have been folded into every phase below. Key themes: target high-income ZIP codes
+> (80920, 80919, 80831), exploit the SCIF/DOD niche, prepare for AI/voice search (GEO),
+> fight map spam actively, and build niche authority through smart-lock and access-control content.
+
 ---
 
 ## Phase 1: Core Pages Content (EEAT + Trust)
@@ -98,11 +104,21 @@ Each area page needs real localized content, not generic filler.
 
 ### Consider adding new area pages for:
 - [ ] El Paso County (general)
-- [ ] Peyton, CO
+- [ ] Peyton, CO (ZIP 80831 - high-income $97,925 median - priority target per research)
 - [ ] Broadmoor, CO
+- [ ] Woodland Park, CO (expanding suburb, lower local competition per research)
 - [ ] Calhan, CO
-- [ ] Fort Carson, CO
+- [ ] Fort Carson, CO (military base - ties into SCIF/DOD niche)
 - [ ] Ellicott, CO
+
+### Area page content depth requirements (from research):
+- [ ] Each area page must have minimum 500 words of unique, non-duplicated content
+- [ ] Reference specific local landmarks, roads, and neighborhoods by name
+- [ ] Include 3-5 reviews from customers specifically in that area
+- [ ] Use geotagged original photos (service vehicle in the area, not stock images)
+- [ ] Mention local crime/security context where relevant (El Paso County stats)
+- [ ] Add short video content of work performed in the area when available
+- [ ] Avoid doorway-page patterns (identical text with only city name swapped)
 
 ---
 
@@ -114,6 +130,11 @@ Each area page needs real localized content, not generic filler.
 - [ ] Add Schema.org Service markup on each service page
 - [ ] Add Schema.org LocalBusiness markup on area pages
 - [ ] Add FAQPage schema on pages with FAQ sections
+- [ ] Enhance JSON-LD with `areaServed` array listing all cities and ZIP codes served
+- [ ] Add `openingHoursSpecification` with 24/7 or exact hours to win "Open Now" queries
+- [ ] Add `hasMap` linking to verified Google Business Profile map URL
+- [ ] Ensure `@type: Locksmith` (sub-type of LocalBusiness) is used, not generic LocalBusiness
+- [ ] Add `telephone` in international format matching GBP exactly (NAP consistency)
 - [ ] Update sitemap.xml with all final URLs and lastmod dates
 - [ ] Verify robots.txt allows all important pages
 - [ ] Add Open Graph and Twitter Card meta to all inner pages (not just homepage)
@@ -165,20 +186,91 @@ Each area page needs real localized content, not generic filler.
 - [ ] Create seasonal content (holiday security tips, winter car lockout tips)
 - [ ] Add video content from YouTube channel to relevant pages
 - [ ] Create a "Our Projects" portfolio page with before/after photos
-- [ ] Build out more long-tail service pages as needed (car ignition repair, etc.)
+- [ ] Build out more long-tail service pages as needed (car ignition repair, ignition replacement, etc.)
+
+### Smart Lock & Technology Content Hub (from research - high growth niche)
+- [ ] Create comparison articles: best smart locks for front doors, patio doors, rental properties
+- [ ] Write content on Thread/Matter protocol smart lock integration
+- [ ] Create content on role-based keyless access for small businesses
+- [ ] Publish IoT security tips for smart lock owners
+- [ ] Target long-tail keywords: "smart lock installation colorado springs", "keyless entry system installer"
+
+### SCIF / DOD / Government Security Niche (from research - zero local competition)
+- [ ] Create dedicated page: "GSA Approved Locks Colorado Springs" targeting defense contractors
+- [ ] Create dedicated page: "SCIF Door Security Contractor" for classified facility compliance
+- [ ] Detail knowledge of GSA-approved hardware (Kaba Mas X-10, S&G 2937, FF-L-2890C spec)
+- [ ] Target keywords: "SCIF locksmith Colorado Springs", "GSA approved lock installation"
+- [ ] Mention proximity to Peterson AFB, USAFA, Schriever SFB, NORAD
+- [ ] Include content on panic bar / egress compliance for secure facilities (ASTM E90)
+- [ ] If certifications are needed, document the path to obtain them
 
 ---
 
 ## Phase 8: Off-Page SEO and Local Signals
 
+### Google Business Profile (GBP) - Critical SAB Setup (from research)
 - [ ] Claim and optimize Google Business Profile
+- [ ] Configure GBP as Service Area Business (SAB) - HIDE home address completely
+- [ ] Set primary category: "Locksmith"; add secondary: "Emergency Locksmith", "Key Duplication Service"
+- [ ] Define all service areas on the map (Colorado Springs + every suburb served)
+- [ ] Set up automated SMS review requests sent immediately after each job completion
+- [ ] Respond to EVERY review within 24 hours using keyword-rich natural responses
+- [ ] Upload geotagged photos weekly: team at work, van, equipment, before/after installs
+- [ ] Post regularly on Google Business Profile (weekly minimum)
+- [ ] Populate GBP Q&A section with common customer questions pre-emptively
+
+### Spam Fighting (from research - critical for locksmith industry)
+- [ ] Audit Google Maps for fake/spam locksmith listings in Colorado Springs
+- [ ] Report fake listings via "Suggest an Edit" > "Close or remove" on Google Maps
+- [ ] For persistent spam networks, file Google Business Redressal Complaint Form with evidence
+- [ ] Monitor monthly for new spam listings appearing in the local pack
+- [ ] Document patterns: generic names with keywords, no real address, bulk fake reviews
+
+### NAP Consistency & Citation Building
 - [ ] Ensure NAP (Name, Address, Phone) consistency across all directories
-- [ ] Get listed on major directories: Yelp, BBB, Angi, HomeAdvisor, Thumbtack
-- [ ] Build citations on locksmith-specific directories
-- [ ] Encourage and respond to Google Reviews
-- [ ] Post regularly on Google Business Profile
+- [ ] Get listed on major directories: Yelp, BBB, Angi, HomeAdvisor, Thumbtack, Apple Maps
+
+### Niche Locksmith Directories (from research - high topical authority)
+- [ ] Fair Trade Locksmith Directory (fairtradelocksmiths.com) - verified listing
+- [ ] ALOA (Associated Locksmiths of America) directory
+- [ ] Locksmiths Index
+- [ ] USA Locksmiths directory
+
+### Local Colorado Springs Citations
+- [ ] Colorado Springs Chamber & EDC membership and directory listing
+- [ ] SpringsGuide.com business directory
+- [ ] DowntownCS.com directory
+
+### Local Link Building & Community Partnerships (from research)
+- [ ] Sponsor or partner with Colorado Springs Sports Corporation for event exposure + backlink
+- [ ] Support DowntownCS initiatives (festivals, events) for logo placement + backlink
+- [ ] Guest post on Coloradoinfo.com (accepts guest blog posts - tourism/security angle)
+- [ ] Guest post on Garden of the Gods blog ("security guide for short-term rentals" angle)
+- [ ] Build relationships with local real estate agents for referral links (rekey after home purchase)
 - [ ] Share project photos and tips on social media (Facebook, Instagram, YouTube)
-- [ ] Build local backlinks from Colorado Springs community sites
+
+---
+
+## Phase 9: GEO - Generative Engine Optimization (from research)
+
+Prepare the site for AI-powered search (Google AI Overviews, ChatGPT, Gemini, voice assistants).
+
+- [ ] Structure all content with clear, direct Q&A format (AI engines extract these as answers)
+- [ ] Ensure JSON-LD schema is complete and accurate (AI engines rely heavily on structured data)
+- [ ] Write conversational long-tail content matching voice queries (e.g. "find me a locksmith who can fix a commercial door at night")
+- [ ] Include definitive factual statements (pricing ranges, service times, coverage areas) that AI can cite
+- [ ] Build topical authority clusters: smart locks hub, emergency lockout hub, commercial security hub
+- [ ] Monitor AI Overview appearances for target keywords monthly
+
+## Phase 10: Paid Advertising Strategy (from research)
+
+Paid ads should complement organic, not replace it. Use strategically per research findings.
+
+- [ ] Set up Google Local Services Ads (LSA) - pay per verified lead, top-of-page placement
+- [ ] Restrict LSA/PPC to high-margin services only: emergency night calls, commercial jobs, key programming
+- [ ] Do NOT run paid ads for basic lockouts ($75-100 jobs) - CPL of $90+ makes these unprofitable
+- [ ] Track blended CPL (paid + organic combined) monthly to measure organic ROI improvement
+- [ ] Phase down paid spend as organic rankings improve
 
 ---
 
@@ -188,9 +280,12 @@ Each area page needs real localized content, not generic filler.
 2. **Finish all area page content** (Phase 3) - these drive local pack rankings
 3. **Add reviews and EEAT signals** (Phase 5) - builds Google trust
 4. **Technical SEO cleanup** (Phase 4) - ensures pages get indexed properly
-5. **Conversion optimization** (Phase 6) - turns traffic into calls
-6. **Content expansion** (Phase 7) - builds topical authority over time
-7. **Off-page SEO** (Phase 8) - strengthens domain authority
+5. **Google Business Profile + Spam Fighting** (Phase 8) - critical for map pack visibility
+6. **Conversion optimization** (Phase 6) - turns traffic into calls
+7. **Content expansion + SCIF/smart-lock niches** (Phase 7) - builds topical authority and captures high-margin B2B
+8. **GEO optimization** (Phase 9) - future-proofs for AI search
+9. **Off-page SEO and local links** (Phase 8 cont.) - strengthens domain authority
+10. **Paid advertising** (Phase 10) - only after organic foundation is solid
 
 ---
 
@@ -203,3 +298,24 @@ Each area page needs real localized content, not generic filler.
 - Footer: DONE (social links, trust content)
 - Individual service pages: NEEDS CONTENT REWRITE
 - Individual area pages: NEEDS CONTENT REWRITE
+
+---
+
+## Key Competitors to Monitor (from research)
+
+| Competitor | Strength | Weakness to Exploit |
+|---|---|---|
+| Magic Key Locksmiths | 400 reviews, 4.8 stars, physical storefront, 15-min response | No AI/GEO optimization, no SCIF niche |
+| SkyHi Locksmith (Benny) | 30+ years experience, mobile model, huge blog engagement, 2026 QBA award | Similar mobile model - differentiate on tech/smart locks |
+| Rocky Mountain Lock & Key | Operating since 2003, strong commercial/property mgmt | Dated digital presence |
+| Henley's Key Service | 24/7 availability | Limited online authority |
+
+## High-Value Target Demographics (from research)
+
+| Area / ZIP | Median Income | Priority Services | Competition |
+|---|---|---|---|
+| Peyton (80831) | $97,925 | Smart locks, master key systems | Low-Medium |
+| Colorado Springs North (80920) | $96,284 | High-security locks, luxury vehicle keys | High |
+| Colorado Springs West (80919) | $95,320 | 24/7 emergency, smart patio locks | High |
+| Monument / Manitou Springs | Growing suburbs | Vehicle lockouts, rekey after move | Medium |
+| Woodland Park | Expanding suburb | Emergency + residential | Low |

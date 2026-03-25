@@ -60,9 +60,13 @@ a {
 
 a:focus-visible,
 button:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
   outline: 3px solid rgba(255, 106, 0, 0.9);
   outline-offset: 3px;
+  border-radius: 6px;
 }
 
 img {
@@ -226,6 +230,21 @@ summary {
 .main-nav a:hover,
 .main-nav a[aria-current="page"] {
   color: var(--text);
+}
+
+.main-nav a[aria-current="page"] {
+  position: relative;
+}
+
+.main-nav a[aria-current="page"]::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  border-radius: 999px;
+  background: var(--primary);
 }
 
 .header-cta {
@@ -473,6 +492,7 @@ summary {
   border-radius: 999px;
   border: 1px solid transparent;
   font-weight: 800;
+  cursor: pointer;
   transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 
@@ -638,6 +658,11 @@ summary {
   color: var(--text);
   font-weight: 700;
   list-style: none;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.4rem 0;
 }
 
 .faq-item summary::-webkit-details-marker {
@@ -650,8 +675,11 @@ summary {
 
 .faq-item summary::after {
   content: "+";
-  float: right;
+  flex-shrink: 0;
+  margin-left: 1rem;
   color: var(--primary);
+  font-size: 1.3rem;
+  line-height: 1;
 }
 
 .faq-item[open] summary::after {
@@ -828,6 +856,17 @@ summary {
   margin-bottom: 0;
 }
 
+.footer-list li {
+  margin-bottom: 0.15rem;
+}
+
+.footer-list a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0.2rem 0;
+}
+
 .footer-list a:hover,
 .footer-list a:focus-visible,
 .footer-map-links a:hover,
@@ -991,10 +1030,27 @@ summary {
 
   .nav-toggle {
     display: inline-flex;
+    min-width: 48px;
+    min-height: 48px;
   }
 
   .header-actions {
     display: contents;
+  }
+
+  .nav-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 18;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 250ms ease;
+  }
+
+  .nav-backdrop.is-visible {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   .main-nav {
@@ -1002,27 +1058,70 @@ summary {
     top: calc(100% + 0.75rem);
     left: 1rem;
     right: 1rem;
-    display: none;
+    z-index: 19;
+    display: flex;
     flex-direction: column;
     align-items: stretch;
-    padding: 1rem;
+    padding: 0.75rem;
     border: 1px solid var(--line);
     border-radius: 22px;
     background: rgba(17, 17, 17, 0.98);
     box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(-12px);
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 250ms ease, transform 250ms ease, visibility 0s 250ms;
   }
 
   .main-nav.is-open {
-    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    visibility: visible;
+    transition: opacity 250ms ease, transform 250ms ease, visibility 0s;
   }
 
   .main-nav a {
-    padding: 0.85rem 0;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    display: flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 0.75rem 1rem;
+    border-radius: 14px;
+    font-size: 1.05rem;
+    transition: background 150ms ease;
+  }
+
+  .main-nav a:hover,
+  .main-nav a:focus-visible {
+    background: rgba(255, 106, 0, 0.1);
+  }
+
+  .main-nav a[aria-current="page"] {
+    background: rgba(255, 106, 0, 0.12);
+    color: var(--text);
+    font-weight: 700;
+  }
+
+  .main-nav a[aria-current="page"]::after {
+    display: none;
+  }
+
+  .main-nav a + a {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0;
+  }
+
+  .main-nav a:first-child {
+    border-radius: 14px 14px 0 0;
   }
 
   .main-nav a:last-child {
-    border-bottom: 0;
+    border-radius: 0 0 14px 14px;
+  }
+
+  .main-nav a:only-child {
+    border-radius: 14px;
   }
 
   .header-cta {
@@ -1069,6 +1168,11 @@ summary {
 
   .mobile-cta-bar .button {
     min-height: 48px;
+    font-size: 0.95rem;
+  }
+
+  .site-shell {
+    padding-bottom: calc(4.5rem + env(safe-area-inset-bottom));
   }
 }
 
@@ -1116,5 +1220,25 @@ summary {
 
   .emergency-list li {
     flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+
+  .page-progress {
+    display: none;
   }
 }
