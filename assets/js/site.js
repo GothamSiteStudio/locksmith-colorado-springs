@@ -8,6 +8,7 @@ const navItems = [
 
 const phoneHref = "tel:+17192573108";
 const phoneLabel = "(719) 257-3108";
+const brandLogoPath = "images/logo.jpg";
 
 function normalizeHref(root, href) {
   if (href === "index.html" && root) {
@@ -42,11 +43,8 @@ function renderHeader() {
     </div>
     <div class="header-inner">
       <a class="brand" href="${normalizeHref(root, "index.html")}">
-        <img class="brand-logo" src="${root}images/logo.svg" alt="Locksmith Solutions LLC logo" width="40" height="40">
-        <div>
-          <span class="brand-name">Locksmith Solutions LLC</span>
-          <span class="brand-subtitle">Colorado Springs Mobile Locksmith</span>
-        </div>
+        <img class="brand-logo" src="${root}${brandLogoPath}" alt="Locksmith Solutions LLC logo" width="330" height="100">
+        <span class="visually-hidden">Locksmith Solutions LLC, Colorado Springs Mobile Locksmith</span>
       </a>
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Open navigation">
         <span class="nav-toggle-box"><span></span></span>
@@ -72,6 +70,9 @@ function renderFooter() {
     <div class="footer-inner">
       <div class="footer-top">
         <div class="footer-intro">
+          <a class="footer-brand" href="${normalizeHref(root, "index.html")}">
+            <img class="footer-brand-logo" src="${root}${brandLogoPath}" alt="Locksmith Solutions LLC logo" width="330" height="100">
+          </a>
           <p class="eyebrow">Locksmith Solutions LLC</p>
           <h2 class="footer-heading">Mobile locksmith help with faster contact, clearer navigation, and visible local trust.</h2>
           <p class="footer-note">Family-owned, licensed, and insured locksmith service for Colorado Springs and El Paso County. Call for lockouts, car key replacement, rekeying, smart locks, and business security work.</p>
