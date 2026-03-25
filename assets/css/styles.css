@@ -878,6 +878,29 @@ summary {
   list-style: disc;
 }
 
+.footer-credit {
+  text-align: center;
+  padding-top: 1rem;
+  margin-top: 0.75rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.footer-credit p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--secondary);
+}
+
+.footer-credit a {
+  color: var(--muted);
+  font-weight: 600;
+  transition: color 180ms ease;
+}
+
+.footer-credit a:hover {
+  color: var(--primary);
+}
+
 .brand-logo {
   width: 240px;
   max-width: 100%;

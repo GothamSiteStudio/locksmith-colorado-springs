@@ -175,6 +175,9 @@ function renderFooter() {
         <p><a href="${phoneHref}">${phoneLabel}</a></p>
         <p>Locksmith Solutions LLC</p>
       </div>
+      <div class="footer-credit">
+        <p>Designed, built, and promoted by <a href="https://gothamsitestudio.com/" target="_blank" rel="noopener noreferrer">Gotham Site Studio</a></p>
+      </div>
     </div>
   `;
 }
