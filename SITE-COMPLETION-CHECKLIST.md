@@ -51,9 +51,9 @@ Goal: Make this website significantly better than locksmithsolutionsllc.com and 
 Each service page needs real customer-facing content, not placeholder/developer text.
 
 ### Automotive Services
-- [ ] **car-lockout.html** - Rewrite with real automotive lockout content, pricing info, FAQs
-- [ ] **car-key-replacement.html** - Car key types, makes/models supported, pricing guidance
-- [ ] **transponder-key-programming.html** - Chip keys, fobs, push-to-start, process explanation
+- [x] **car-lockout.html** - Rewrite with real automotive lockout content, pricing info, FAQs
+- [x] **car-key-replacement.html** - Car key types, makes/models supported, pricing guidance
+- [x] **transponder-key-programming.html** - Chip keys, fobs, push-to-start, process explanation
 
 ### Residential Services
 - [ ] **house-lockout.html** - Emergency lockout process, damage-free methods, tips
