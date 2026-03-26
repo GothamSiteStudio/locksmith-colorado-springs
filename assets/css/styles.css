@@ -588,6 +588,14 @@ summary {
   margin: 0;
 }
 
+.keyword-card-section {
+  margin-top: 1.5rem;
+}
+
+.keyword-card-link {
+  color: inherit;
+}
+
 .section-heading {
   margin-bottom: 1.8rem;
 }

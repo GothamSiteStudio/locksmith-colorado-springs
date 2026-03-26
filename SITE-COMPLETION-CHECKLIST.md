@@ -61,12 +61,27 @@ Each service page needs real customer-facing content, not placeholder/developer 
 - [ ] **smart-lock-installation.html** - Brands carried, types of smart locks, benefits
 - [ ] **lock-installation-repair.html** - Types of locks, hardware options, repair process
 - [ ] **safe-lockout.html** - Safe types, lockout methods, combination recovery
+- [ ] **lock-change.html** - Full lock replacement vs rekey, when to change locks, hardware options
+- [ ] **deadbolt-installation.html** - Single/double cylinder deadbolts, grade ratings, security benefits
+- [ ] **broken-key-extraction.html** - Broken key in lock, key stuck, extraction methods, prevention tips
+- [ ] **garage-door-lock.html** - Garage lock types, T-handle locks, side door locks, replacement
+- [ ] **mailbox-lock-replacement.html** - Residential and HOA mailbox locks, USPS-approved locks, cluster boxes
 
 ### Commercial Services
 - [ ] **business-lockout.html** - Commercial entry, types of businesses served
 - [ ] **panic-bar-installation.html** - Code compliance, exit hardware types, installation
 - [ ] **master-key-systems.html** - How master keys work, planning, multi-door properties
 - [ ] **high-security-locks.html** - Restricted keys, high-security cylinders, key control
+- [ ] **access-control-systems.html** - Keycard/fob entry, commercial access control, multi-tenant systems
+- [ ] **commercial-lock-rekey.html** - Office rekey, tenant turnover, employee change, multi-door rekey
+- [ ] **electric-strike-buzzer-systems.html** - Electric strikes, buzzer entry, remote door release, intercom systems
+- [ ] **door-closer-installation.html** - Commercial door closers, ADA compliance, repair and adjustment
+- [ ] **file-cabinet-desk-locks.html** - Office furniture locks, file cabinet locks, desk drawer locks
+- [ ] **commercial-safe-installation.html** - Business safe supply and install, fire safes, drop safes, anchoring
+
+### Cross-Category Services
+- [ ] **emergency-locksmith.html** - 24/7 emergency locksmith landing page, links to all lockout services
+- [ ] **key-duplication.html** - Standard key copies, restricted key duplication, residential and commercial
 
 ### For each service page:
 - [ ] Unique H1, meta title, and meta description targeting local search intent

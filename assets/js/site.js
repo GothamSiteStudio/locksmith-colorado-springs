@@ -7,7 +7,7 @@ const navItems = [
 ];
 
 const phoneHref = "tel:+17192573108";
-const phoneLabel = "(719) 257-3108";
+const phoneLabel = "(719)&nbsp;257&#8209;3108";
 const brandLogoPath = "images/logo.jpg";
 
 function normalizeHref(root, href) {
@@ -38,7 +38,7 @@ function renderHeader() {
     <div class="site-utility">
       <div class="header-inner utility-inner">
         <p>Locked out or need a fast quote? Call now for mobile locksmith help.</p>
-        <a class="utility-link" href="${phoneHref}">Call ${phoneLabel}</a>
+        <a class="utility-link" href="${phoneHref}">Call&nbsp;${phoneLabel}</a>
       </div>
     </div>
     <div class="header-inner">
@@ -51,7 +51,7 @@ function renderHeader() {
       </button>
       <div class="header-actions">
         <nav class="main-nav" id="primary-nav" aria-label="Primary navigation">${navMarkup}</nav>
-        <a class="header-cta" href="${phoneHref}">Call ${phoneLabel}</a>
+        <a class="header-cta" href="${phoneHref}">Call&nbsp;${phoneLabel}</a>
       </div>
     </div>
   `;
@@ -77,7 +77,7 @@ function renderFooter() {
           <h2 class="footer-heading">Mobile locksmith help with faster contact, clearer navigation, and visible local trust.</h2>
           <p class="footer-note">Family-owned, licensed, and insured locksmith service for Colorado Springs and El Paso County. Call for lockouts, car key replacement, rekeying, smart locks, and business security work.</p>
           <div class="footer-quick-actions" aria-label="Quick contact actions">
-            <a class="button button-primary" href="${phoneHref}">Call ${phoneLabel}</a>
+            <a class="button button-primary" href="${phoneHref}">Call&nbsp;${phoneLabel}</a>
             <a class="button button-secondary" href="${normalizeHref(root, "contact/index.html")}">Request Service</a>
             <a class="button button-secondary" href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
           </div>
@@ -108,7 +108,7 @@ function renderFooter() {
           <p class="card-kicker">Contact</p>
           <h3 class="footer-section-title">Reach the locksmith directly</h3>
           <ul class="footer-list">
-            <li><a href="${phoneHref}">Call ${phoneLabel}</a></li>
+            <li><a href="${phoneHref}">Call&nbsp;${phoneLabel}</a></li>
             <li><a href="mailto:yourlocksmith4@gmail.com">yourlocksmith4@gmail.com</a></li>
             <li><a href="${normalizeHref(root, "contact/index.html")}">Contact form and service request</a></li>
             <li>Mon-Fri 7:00am to 9:30pm</li>
@@ -374,8 +374,10 @@ function renderFloatingCta() {
 
   const mobileBar = document.createElement("div");
   mobileBar.className = "mobile-cta-bar";
+  mobileBar.setAttribute("role", "region");
+  mobileBar.setAttribute("aria-label", "Quick contact");
   mobileBar.innerHTML = `
-    <a class="button button-primary" href="${phoneHref}">Call ${phoneLabel}</a>
+    <a class="button button-primary" href="${phoneHref}">Call&nbsp;${phoneLabel}</a>
     <a class="button button-secondary" href="${normalizeHref(root, "services/index.html")}">Services</a>
   `;
 
