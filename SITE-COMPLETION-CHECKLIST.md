@@ -20,13 +20,13 @@ Goal: Make this website significantly better than locksmithsolutionsllc.com and 
 - [x] Schema markup (Locksmith type)
 - [x] Add customer review/testimonial section with real 5-star reviews
 - [x] Add "Our Projects" photo gallery section (real job photos)
-- [ ] Add Google reviews widget or embed
+- [x] Add Google reviews widget or embed
 
 ### About Page (about/index.html)
 - [x] Real "Who We Are" and "What We Do" content from original site
 - [x] Service area list with links
 - [x] CTA with phone and contact link
-- [ ] Add owner/team photo and personal bio (builds Experience and Expertise)
+- [x] Add owner/team photo and personal bio (builds Experience and Expertise)
 - [ ] Add business license number or certification details
 - [ ] Add founding year and milestone timeline
 - [ ] Add community involvement or local association memberships
