@@ -114,7 +114,7 @@ Each area page needs real localized content, not generic filler.
 - [ ] Local context: what makes this area unique, common service needs
 - [ ] Cross-links to relevant service pages
 - [ ] Mention of nearby areas served
-- [ ] Schema markup with areaServed
+- [x] Schema markup with areaServed
 - [ ] Embedded Google Maps showing the area (optional)
 
 ### Consider adding new area pages for:
@@ -142,21 +142,21 @@ Each area page needs real localized content, not generic filler.
 - [x] Canonical URLs on all pages
 - [x] Unique title tags and meta descriptions
 - [x] Schema.org Locksmith markup on homepage
-- [ ] Add Schema.org Service markup on each service page
-- [ ] Add Schema.org LocalBusiness markup on area pages
+- [x] Add Schema.org Service markup on each service page
+- [x] Add Schema.org LocalBusiness markup on area pages
 - [ ] Add FAQPage schema on pages with FAQ sections
 - [ ] Enhance JSON-LD with `areaServed` array listing all cities and ZIP codes served
 - [ ] Add `openingHoursSpecification` with 24/7 or exact hours to win "Open Now" queries
 - [ ] Add `hasMap` linking to verified Google Business Profile map URL
 - [ ] Ensure `@type: Locksmith` (sub-type of LocalBusiness) is used, not generic LocalBusiness
 - [ ] Add `telephone` in international format matching GBP exactly (NAP consistency)
-- [ ] Update sitemap.xml with all final URLs and lastmod dates
-- [ ] Verify robots.txt allows all important pages
-- [ ] Add Open Graph and Twitter Card meta to all inner pages (not just homepage)
+- [x] Update sitemap.xml with all final URLs and lastmod dates
+- [x] Verify robots.txt allows all important pages
+- [x] Add Open Graph and Twitter Card meta to all inner pages (not just homepage)
 - [ ] Add hreflang if needed (English only site, probably not needed)
 - [ ] Add breadcrumb navigation and BreadcrumbList schema
-- [ ] Verify all internal links work (no broken links)
-- [ ] Ensure all images have descriptive alt text
+- [x] Verify all internal links work (no broken links)
+- [x] Ensure all images have descriptive alt text
 - [ ] Compress and optimize all images (WebP format preferred)
 - [ ] Add favicon and apple-touch-icon
 - [ ] Set up Google Analytics 4

@@ -661,6 +661,101 @@ summary {
   gap: 1rem;
 }
 
+.reviews-shell {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.reviews-overview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap: 1rem;
+  align-items: center;
+}
+
+.reviews-overview-main,
+.reviews-overview-actions,
+.reviews-score-row,
+.reviews-grid,
+.review-card-top {
+  display: grid;
+  gap: 1rem;
+}
+
+.reviews-overview-actions {
+  align-content: center;
+}
+
+.reviews-score-row {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+}
+
+.reviews-score-value,
+.reviews-score-stars,
+.review-meta,
+.review-copy {
+  margin: 0;
+}
+
+.reviews-score-value {
+  color: var(--text);
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 4rem;
+  line-height: 0.95;
+}
+
+.reviews-score-stars {
+  color: #ffb680;
+  font-size: 1.2rem;
+  letter-spacing: 0.12em;
+}
+
+.reviews-score-copy strong,
+.review-card-top strong {
+  color: var(--text);
+}
+
+.reviews-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.review-card {
+  min-height: 100%;
+}
+
+.review-card-top {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.review-avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border: 1px solid var(--line-strong);
+  border-radius: 999px;
+  background: rgba(255, 106, 0, 0.14);
+  color: #ffb680;
+  font-weight: 800;
+}
+
+.review-meta {
+  color: #ffb680;
+  font-size: 0.92rem;
+}
+
+.review-meta span {
+  color: var(--muted);
+}
+
+.review-copy {
+  color: var(--muted);
+}
+
 .faq-item summary {
   cursor: pointer;
   color: var(--text);
@@ -1043,6 +1138,7 @@ summary {
   .split-layout,
   .content-grid,
   .footer-grid,
+  .reviews-overview,
   .card-grid-3,
   .card-grid-4 {
     grid-template-columns: 1fr;
@@ -1055,7 +1151,8 @@ summary {
   .hero-badges,
   .quick-action-grid,
   .process-grid,
-  .contact-action-grid {
+  .contact-action-grid,
+  .reviews-grid {
     grid-template-columns: 1fr;
   }
 
@@ -1174,6 +1271,10 @@ summary {
     min-height: 280px;
   }
 
+  .reviews-overview-actions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   h1 {
     max-width: 100%;
   }
@@ -1244,6 +1345,11 @@ summary {
     flex-direction: column;
   }
 
+  .reviews-overview-actions,
+  .reviews-score-row {
+    grid-template-columns: 1fr;
+  }
+
   .footer-map-frame,
   .footer-map-frame iframe {
     min-height: 240px;
@@ -1251,6 +1357,10 @@ summary {
 
   .emergency-list li {
     flex-direction: column;
+  }
+
+  .reviews-score-value {
+    font-size: 3.2rem;
   }
 }
 

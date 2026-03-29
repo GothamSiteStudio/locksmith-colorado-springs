@@ -38,3 +38,35 @@ This project replaces a heavy Wix source dump with a cleaner static site structu
 3. Add FAQ schema per important page.
 4. Add a tracked contact form with source attribution.
 5. Add Google Business Profile style location signals and service-specific testimonials.
+
+## Google Reviews Sync
+
+The homepage now loads reviews from `assets/data/google-reviews.json`.
+
+To keep API credentials out of the frontend, sync the data locally first and let the site read the JSON file:
+
+1. Copy `.env.local.example` to `.env.local`
+2. Put your real values in `.env.local`
+
+Google Places API mode:
+   - Set `GOOGLE_PLACES_API_KEY`
+   - Set `GOOGLE_PLACE_ID`
+
+Custom endpoint mode:
+   - Set `GOOGLE_REVIEWS_ENDPOINT`
+   - Optionally set `GOOGLE_REVIEWS_HEADERS` to a JSON object string such as `{"Authorization":"Bearer ..."}`
+
+Then run:
+
+```bash
+python _sync_google_reviews.py
+```
+
+That command writes the latest normalized review data into `assets/data/google-reviews.json` for the homepage reviews section.
+
+Example `.env.local`:
+
+```env
+GOOGLE_PLACE_ID=ChIJr8kfZN7vwogRIRvm9Kjuk7g
+GOOGLE_PLACES_API_KEY=your-real-api-key
+```

@@ -9,6 +9,8 @@ const navItems = [
 const phoneHref = "tel:+17192573108";
 const phoneLabel = "(719)&nbsp;257&#8209;3108";
 const brandLogoPath = "images/logo.jpg";
+const googleBusinessProfileUrl = "https://maps.app.goo.gl/x9CZTwCN2YEvm28m9";
+const googleReviewsDataPath = "assets/data/google-reviews.json";
 
 function normalizeHref(root, href) {
   if (href === "index.html" && root) {
@@ -74,12 +76,12 @@ function renderFooter() {
             <img class="footer-brand-logo" src="${root}${brandLogoPath}" alt="Locksmith Solutions LLC logo" width="330" height="100">
           </a>
           <p class="eyebrow">Locksmith Solutions LLC</p>
-          <h2 class="footer-heading">Mobile locksmith help with faster contact, clearer navigation, and visible local trust.</h2>
+          <h2 class="footer-heading">Your Trusted Mobile Locksmith in Colorado Springs</h2>
           <p class="footer-note">Family-owned, licensed, and insured locksmith service for Colorado Springs and El Paso County. Call for lockouts, car key replacement, rekeying, smart locks, and business security work.</p>
           <div class="footer-quick-actions" aria-label="Quick contact actions">
             <a class="button button-primary" href="${phoneHref}">Call&nbsp;${phoneLabel}</a>
             <a class="button button-secondary" href="${normalizeHref(root, "contact/index.html")}">Request Service</a>
-            <a class="button button-secondary" href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
+            <a class="button button-secondary" href="${googleBusinessProfileUrl}" target="_blank" rel="noopener noreferrer">Open Google Maps</a>
           </div>
         </div>
         <section class="footer-map-card" aria-labelledby="footer-map-title">
@@ -88,7 +90,7 @@ function renderFooter() {
             <h3 id="footer-map-title">Find Locksmith Solutions LLC on Google Maps</h3>
             <p>Use the embedded map to open directions, confirm the business listing, or verify the local presence before you call.</p>
             <div class="footer-map-links">
-              <a class="text-link" href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener noreferrer">View Google Business profile</a>
+              <a class="text-link" href="${googleBusinessProfileUrl}" target="_blank" rel="noopener noreferrer">View Google Business profile</a>
               <a class="text-link" href="${phoneHref}">Call for immediate help</a>
             </div>
           </div>
@@ -166,7 +168,7 @@ function renderFooter() {
             <li><a href="https://www.instagram.com/locksmithsolutionsllc" target="_blank" rel="noopener noreferrer">Instagram</a></li>
             <li><a href="https://www.youtube.com/channel/UCPRSW-U8askxdzkPqYhhe2A" target="_blank" rel="noopener noreferrer">YouTube</a></li>
             <li><a href="https://www.yelp.com/biz/locksmith-solutions-colorado-springs" target="_blank" rel="noopener noreferrer">Yelp</a></li>
-            <li><a href="https://maps.app.goo.gl/x9CZTwCN2YEvm28m9" target="_blank" rel="noopener noreferrer">Google Business profile</a></li>
+            <li><a href="${googleBusinessProfileUrl}" target="_blank" rel="noopener noreferrer">Google Business profile</a></li>
           </ul>
         </div>
       </div>
@@ -452,6 +454,153 @@ function setupReveal() {
   nodes.forEach((node) => observer.observe(node));
 }
 
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function formatRatingStars(rating) {
+  const safeRating = Number(rating) || 0;
+  const rounded = Math.max(0, Math.min(5, Math.round(safeRating)));
+  return `${"★".repeat(rounded)}${"☆".repeat(5 - rounded)}`;
+}
+
+function formatReviewDate(dateString, fallbackText) {
+  if (!dateString) {
+    return fallbackText || "Recent review";
+  }
+
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) {
+    return fallbackText || "Recent review";
+  }
+
+  return new Intl.DateTimeFormat("en-US", {
+    month: "short",
+    year: "numeric"
+  }).format(date);
+}
+
+function truncateReviewText(text) {
+  const safeText = String(text || "").trim();
+
+  if (safeText.length <= 240) {
+    return safeText;
+  }
+
+  return `${safeText.slice(0, 237).trimEnd()}...`;
+}
+
+function buildReviewsOverviewMarkup(payload) {
+  const rating = Number(payload.rating) || 0;
+  const ratingCount = Number(payload.userRatingCount) || 0;
+  const businessName = escapeHtml(payload.businessName || "Locksmith Solutions LLC");
+  const sourceUrl = payload.sourceUrl || googleBusinessProfileUrl;
+  const lastUpdated = payload.lastUpdated ? formatReviewDate(payload.lastUpdated, "Recently updated") : "Recently updated";
+
+  return `
+    <div class="reviews-overview-main">
+      <p class="card-kicker">Verified Google Business Feedback</p>
+      <div class="reviews-score-row">
+        <div>
+          <p class="reviews-score-value">${rating.toFixed(1)}</p>
+          <p class="reviews-score-stars" aria-label="${rating.toFixed(1)} out of 5 stars">${formatRatingStars(rating)}</p>
+        </div>
+        <div class="reviews-score-copy">
+          <strong>${businessName}</strong>
+          <p>Based on ${ratingCount} Google reviews. Updated ${escapeHtml(lastUpdated)}.</p>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-overview-actions">
+      <a class="button button-primary" href="${sourceUrl}" target="_blank" rel="noopener noreferrer">Read More on Google</a>
+      <a class="button button-secondary" href="${phoneHref}">Call for Service</a>
+    </div>
+  `;
+}
+
+function buildReviewCardMarkup(review) {
+  const authorName = escapeHtml(review.authorName || "Google customer");
+  const reviewText = escapeHtml(truncateReviewText(review.text || ""));
+  const rating = Number(review.rating) || 5;
+  const dateLabel = escapeHtml(formatReviewDate(review.publishTime, review.relativePublishTimeDescription));
+  const authorInitial = escapeHtml(authorName.charAt(0).toUpperCase() || "G");
+
+  return `
+    <article class="review-card glass-card">
+      <div class="review-card-top">
+        <div class="review-avatar" aria-hidden="true">${authorInitial}</div>
+        <div>
+          <strong>${authorName}</strong>
+          <p class="review-meta">${escapeHtml(formatRatingStars(rating))} <span>${dateLabel}</span></p>
+        </div>
+      </div>
+      <p class="review-copy">${reviewText}</p>
+    </article>
+  `;
+}
+
+function renderReviewsFallback(overview, list, message) {
+  overview.innerHTML = `
+    <div class="reviews-overview-main">
+      <p class="card-kicker">Google Reviews</p>
+      <div class="reviews-score-copy">
+        <strong>Google review feed is ready to connect.</strong>
+        <p>${escapeHtml(message)}</p>
+      </div>
+    </div>
+    <div class="reviews-overview-actions">
+      <a class="button button-primary" href="${googleBusinessProfileUrl}" target="_blank" rel="noopener noreferrer">Open Google Business Profile</a>
+      <a class="button button-secondary" href="${phoneHref}">Call for Service</a>
+    </div>
+  `;
+
+  list.innerHTML = "";
+}
+
+async function renderHomeReviews() {
+  const section = document.querySelector("[data-reviews-section]");
+
+  if (!section) {
+    return;
+  }
+
+  const overview = section.querySelector("[data-reviews-overview]");
+  const list = section.querySelector("[data-reviews-list]");
+  const root = document.body.dataset.root || "";
+
+  if (!overview || !list) {
+    return;
+  }
+
+  try {
+    const response = await fetch(`${root}${googleReviewsDataPath}`, { cache: "no-store" });
+
+    if (!response.ok) {
+      throw new Error(`Failed to load reviews: ${response.status}`);
+    }
+
+    const payload = await response.json();
+    const reviews = Array.isArray(payload.reviews) ? payload.reviews.filter((review) => review && review.text) : [];
+
+    if (!reviews.length) {
+      renderReviewsFallback(overview, list, "Run the Google reviews sync script after adding your API credentials, or open the Google Business profile to view all current feedback.");
+      return;
+    }
+
+    overview.innerHTML = buildReviewsOverviewMarkup(payload);
+    list.innerHTML = reviews.slice(0, 6).map(buildReviewCardMarkup).join("");
+  } catch (error) {
+    renderReviewsFallback(overview, list, "The review data file is not available yet. Connect your API and sync the latest Google reviews into the site data file.");
+    console.error(error);
+  }
+}
+
 ensureMainAnchor();
 renderHeader();
 renderFooter();
@@ -461,3 +610,4 @@ renderFloatingCta();
 setupFaqAccordion();
 setupScrollProgress();
 setupReveal();
+renderHomeReviews();
